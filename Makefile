@@ -1,12 +1,10 @@
 NAME = wolf3D
 
-CC = gcc
-
 FLAGS = -Wall -Werror -Wextra -lSDL2 -I includes/ -I includes/SDL2/ -L ~/lib
 
 LIB = includes/libft/libft.a
 
-FILES = 
+FILES = main.c read.c includes/get_next_line/get_next_line.c
 
 $(NAME):
 	$(MAKE) -C ./includes/libft
@@ -22,7 +20,7 @@ $(NAME):
 	ln -F -s ~/lib/libSDL2-2.0.0.dylib ~/lib/libSDL2.dylib
 	mkdir -p includes/SDL2
 	cp SDL2-2.0.8/include/*.h includes/SDL2/
-	$(CC) $(FILES) $(FLAGS) $(LIB)
+	@gcc -o $(NAME) $(FILES) $(FLAGS) $(LIB)
 
 all: $(NAME)
 
@@ -31,6 +29,7 @@ fclean:
 	rm -rf includes/SDL2
 	rm -rf SDL2-2.0.8
 	rm -rf SDL2-2.0.8.tar.gz
+	$(MAKE) -C ./includes/libft fclean
 
 re: fclean all
 
