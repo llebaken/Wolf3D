@@ -1,18 +1,20 @@
 #include "wolf.h"
 
-void    ft_sdl(t_main *a)
+void    ft_sdl(t_main *m)
 {
     if(SDL_Init(SDL_INIT_EVERYTHING) != 0)
     {
         ft_putstr("Error initialising SDL");
+        free(m->map);
         exit(0);
     }
-    a->s.win = SDL_CreateWindow("Wolf3D", SDL_WINDOWPOS_CENTERED, 
+    m->s.win = SDL_CreateWindow("Wolf3D", SDL_WINDOWPOS_CENTERED, 
                 SDL_WINDOWPOS_CENTERED, 512, 384, 0);
-    a->s.ren = SDL_CreateRenderer(a->s.win, -1, 0);
-    if (!a->s.win || !a->s.ren)
+    m->s.ren = SDL_CreateRenderer(m->s.win, -1, 0);
+    if (!m->s.win || !m->s.ren)
     {
         ft_putstr("Error initialising SDL");
+        free(m->map);
         exit(0);
     }
 }
@@ -33,6 +35,11 @@ void    ft_initialise(t_main *m)
     m->w.h = 384;
 }
 
+void    ft_wolf(t_main *m)
+{
+    ft_raycasting(m);
+}
+
 int     main(int ac, char **av)
 {
     t_main m;
@@ -51,14 +58,14 @@ int     main(int ac, char **av)
         ft_readmap(&m);
         ft_sdl(&m);
         ft_initialise(&m);
-        /*while (m.w.quit != -1)
+        while (m.w.quit != -1)
         {
             while (a.w.x++ < a.w.w)
                 ft_wolf(&a);
-            //ft_keypress(&a);
-        }*/
+        }
         SDL_DestroyWindow(m.s.win);
         SDL_Quit();
+        free(m.map);
     }
     return(0);
 }

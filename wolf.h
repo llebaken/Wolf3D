@@ -23,6 +23,20 @@ typedef struct  s_wolf
     int     y;
     int     w;
     int     h;
+    double  cameraX;   //is the x-coordinate on the camera plane that the current x-coordinate of the screen represents && is either = -1(left side of screen) || 0 (center of screen) || 1 (right side of screen)
+    double  rayDirX;
+    double  rayDirY;
+    int     mapX;      // is the x-coordinate of the square the ray is currently in
+    int     mapY;      // is the y-coordinate of the square the ray is currently in 
+    double  sideDistX; //initially the distance the ray has to travel from its start position to the first x-side
+    double  sideDistY; //initially the distance the ray has to travel from its start position to the first -side 
+    double  deltaDistX //the distance the ray has to travel to go from 1 x-side to the next x-side
+    double  deltaDistY //the distance the ray has to travel to go from 1 y-side to the next y-side
+    double  perpWallDist;
+    int     stepX;  //Determines whether the dda formula should jump one square on the x-direction, postively or negatively  (either = 1 || -1)
+    int     stepY;  //Determines whether the dda formula should jump one square on the y-direction, postively or negatively  (either = 1 || -1) 
+    int     hit;    //was there a wall hit?
+    int     side;   //was a NS or a EW wall hit?   
 }               t_wolf;
 
 typedef struct  s_sdl
