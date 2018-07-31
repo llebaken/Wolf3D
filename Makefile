@@ -4,7 +4,7 @@ FLAGS = -Wall -Werror -Wextra -lSDL2 -I includes/ -I includes/SDL2/ -L ~/lib
 
 LIB = includes/libft/libft.a
 
-FILES = main.c read.c includes/get_next_line/get_next_line.c
+FILES = main.c read.c raycasting.c draw.c includes/get_next_line/get_next_line.c
 
 $(NAME):
 	$(MAKE) -C ./includes/libft

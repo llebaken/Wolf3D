@@ -60,8 +60,8 @@ int     main(int ac, char **av)
         ft_initialise(&m);
         while (m.w.quit != -1)
         {
-            while (a.w.x++ < a.w.w)
-                ft_wolf(&a);
+            while (m.w.x++ < m.w.w)
+                ft_wolf(&m);
         }
         SDL_DestroyWindow(m.s.win);
         SDL_Quit();
