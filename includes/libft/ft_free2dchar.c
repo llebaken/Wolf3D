@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printmap.c                                      :+:      :+:    :+:   */
+/*   ft_free2dchar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llebaken <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/19 15:11:07 by llebaken          #+#    #+#             */
-/*   Updated: 2018/07/19 15:17:41 by llebaken         ###   ########.fr       */
+/*   Created: 2018/08/15 15:21:34 by llebaken          #+#    #+#             */
+/*   Updated: 2018/08/15 15:23:55 by llebaken         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_printmap(int **map, int mapy, int map_x)
+void	ft_free2dchar(char **st)
 {
-	int x;
-	int y;
+	int i;
 
-	y = 0;
-	while (mapy > y)
+	i = 0;
+	while (st[i])
 	{
-		x = 0;
-		while (map_x > x)
-		{
-			ft_putnbr(map[y][x]);
-			ft_putchar(' ');
-			x++;
-		}
-		ft_putchar('\n');
-		y++;
+		free(st[i]);
+		i++;
 	}
+	free(st);
+	st = NULL;
 }
