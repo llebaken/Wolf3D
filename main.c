@@ -83,7 +83,6 @@ int		main(int ac, char **av)
 	{
 		m.file = av[1];
 		ft_readmap(&m);
-		ft_printmap(m.map, m.size_y, m.size_x);
 		ft_checkarray(&m);
 		ft_init(&m);
 		ft_initsdl(&m);
