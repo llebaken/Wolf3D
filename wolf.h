@@ -82,5 +82,6 @@ void				ft_readmap(t_main *m);
 void				ft_raycasting(t_main *m);
 void				ft_drawmap(t_main *m);
 void				ft_keypress(t_main *m);
+void				ft_checkarray(t_main *m);
 
 #endif

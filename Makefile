@@ -18,7 +18,7 @@ LIB = includes/libft/libft.a
 
 SDL = SDL2-2.0.8
 
-FILES = main.c read.c raycasting.c draw.c keypress.c includes/get_next_line/get_next_line.c
+FILES = main.c validation.c read.c raycasting.c draw.c keypress.c includes/get_next_line/get_next_line.c
 
 all: $(NAME)
 $(SDL):

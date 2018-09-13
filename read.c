@@ -17,7 +17,7 @@ void		ft_allocate(t_main *m)
 	int i;
 
 	i = 0;
-	if (m->size_x == 0 || m->size_y == 0)
+	if (m->size_x < 4 || m->size_y < 4)
 	{
 		ft_putstr("Error");
 		exit(0);
